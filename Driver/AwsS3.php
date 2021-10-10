@@ -851,7 +851,7 @@ class AwsS3 implements RemoteDriverInterface
         //phpcs:enable
 
         foreach ($this->streams as $path => $stream) {
-            // phpcs:ignore Magento2.Functions.DiscouragedFunction
+            //phpcs:disable
             if (stream_get_meta_data($stream)['uri'] === $resourcePath) {
                 $this->adapter->writeStream($path, $resource, new Config(self::CONFIG));
 

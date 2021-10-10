@@ -20,7 +20,6 @@
             <group value="importExport"/>
             <group value="ConfigurableProduct"/>
             <group value="remote_storage_aws_s3"/>
-            <group value="remote_storage_disabled"/>
         </annotations>
 
         <before>

@@ -134,7 +134,7 @@ class S3FileAssertions extends Helper
      */
     public function deleteDirectory($path): void
     {
-        if ($this->driver->isDirectory($path)) {
+        if ($this->driver->isExists($path)) {
             $this->driver->deleteDirectory($path);
         }
     }
@@ -169,7 +169,7 @@ class S3FileAssertions extends Helper
     }
 
     /**
-     * Asserts that a directory exists on the remote storage system
+     * Asserts that a file or directory exists on the remote storage system
      *
      * @param string $path
      * @param string $message
@@ -177,13 +177,13 @@ class S3FileAssertions extends Helper
      *
      * @throws \Magento\Framework\Exception\FileSystemException
      */
-    public function assertDirectoryExists($path, $message = ''): void
+    public function assertPathExists($path, $message = ''): void
     {
-        $this->assertTrue($this->driver->isDirectory($path), "Failed asserting $path exists. " . $message);
+        $this->assertTrue($this->driver->isExists($path), "Failed asserting $path exists. " . $message);
     }
 
     /**
-     * Asserts that a directory does not exist on the remote storage system
+     * Asserts that a file or directory does not exist on the remote storage system
      *
      * @param string $path
      * @param string $message
@@ -191,9 +191,9 @@ class S3FileAssertions extends Helper
      *
      * @throws \Magento\Framework\Exception\FileSystemException
      */
-    public function assertDirectoryDoesNotExist($path, $message = ''): void
+    public function assertPathDoesNotExist($path, $message = ''): void
     {
-        $this->assertFalse($this->driver->isDirectory($path), "Failed asserting $path does not exist. " . $message);
+        $this->assertFalse($this->driver->isExists($path), "Failed asserting $path does not exist. " . $message);
     }
 
     /**

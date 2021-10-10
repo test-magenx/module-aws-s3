@@ -24,11 +24,13 @@
         </annotations>
 
         <before>
-            <comment userInput="BIC workaround" stepKey="enableRemoteStorage"/>
+            <!-- Enable AWS S3 Remote Storage -->
+            <magentoCLI command="setup:config:set {{RemoteStorageAwsS3ConfigData.enable_options}}" stepKey="enableRemoteStorage" before="revertInitialTaxRateCA"/>
         </before>
 
         <after>
-            <comment userInput="BIC workaround" stepKey="disableRemoteStorage"/>
+            <!-- Disable AWS S3 Remote Storage -->
+            <magentoCLI command="setup:config:set {{RemoteStorageAwsS3ConfigData.disable_options}}" stepKey="disableRemoteStorage" after="logoutFromAdmin"/>
         </after>
     </test>
 </tests>

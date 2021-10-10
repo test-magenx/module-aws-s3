@@ -21,10 +21,10 @@
             </skip>
         </annotations>
         <before>
-            <comment userInput="BIC workaround" stepKey="enableRemoteStorage"/>
+            <magentoCLI command="setup:config:set {{RemoteStorageAwsS3ConfigData.enable_options}}" stepKey="enableRemoteStorage"/>
         </before>
         <after>
-            <comment userInput="BIC workaround" stepKey="disableRemoteStorage"/>
+            <magentoCLI command="setup:config:set {{RemoteStorageAwsS3ConfigData.disable_options}}" stepKey="disableRemoteStorage"/>
         </after>
     </test>
 </tests>
